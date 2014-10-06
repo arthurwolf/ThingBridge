@@ -7,6 +7,10 @@ our $VERSION = '0.1';
 
 my $server = Thingiverse->new();
 
+hook 'before' => sub{
+    header('Access-Control-Allow-Origin' => '*'); 
+};
+
 any '/' => sub {
     template 'index';
 };
